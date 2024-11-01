@@ -12,4 +12,4 @@ https://github.com/nss-evening-cohort-29/flamingo-gitsub/blob/64822bee21f439b386
 
 # flow chart
 
-tbd
+(still working, very draft): https://www.figma.com/board/o44GvPeZBRiKihCvHfwpl0/Untitled?node-id=0-1&node-type=canvas&t=aOt1pJI9CJMZvvVu-0
