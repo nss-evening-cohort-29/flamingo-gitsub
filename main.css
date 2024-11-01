@@ -1,6 +1,8 @@
 body {
   /* background now matches gitHub Darkmode color */
   background-color: #0d1117;
+  display: flex;
+
 }
 
 /* Initial styling to get us in the right direction. */
@@ -15,4 +17,10 @@ body {
 .list-group-item{
   background: transparent;
   color: whitesmoke
+}
+
+
+
+#everything-container {
+  display: flex
 }

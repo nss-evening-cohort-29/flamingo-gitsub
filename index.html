@@ -9,28 +9,107 @@
   </head>
   <body>
 
-    <!-- This bootstrap card most closely matches wireframe requirements -->
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Profile Name</h5>
-        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis!</p>
+
+    <div id="everything-container">
+
+      <!-- This bootstrap card most closely matches wireframe requirements -->
+      <div id="profile-container" class="card" style="width: 18rem; border: transparent;" >
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Profile Name</h5>
+          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis!</p>
+        </div>
+
+        <div class="card-body">
+          <a href="#" id="btnFollow" class="btn btn-primary">Follow</a>
+          <a href="#" id="btnSponsor" class="btn btn-primary">❤️Sponsor</a>
+          <a href="#" id="btnOptions" class="btn btn-primary">...</a>
+        </div>
+
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+
       </div>
 
-      <div class="card-body">
-        <a href="#" id="btnFollow" class="btn btn-primary">Follow</a>
-        <a href="#" id="btnSponsor" class="btn btn-primary">❤️Sponsor</a>
-        <a href="#" id="btnOptions" class="btn btn-primary">...</a>
-      </div>
+      <!-- Here is the container that holds all of the non-profile content. -->
+      <div id="content-container" class="card" style="border: transparent;">
+
+      <!-- Here is the header and the buttons to change the pages -->
+        <div id="header" class="card-body">
+          <div class="card" style="border: transparent;">
+            <div class="card-header">
+            <a href="#" class="btn btn-primary">📖 Overview</a>
+            <a href="#" class="btn btn-primary">📑 Repositories</a>
+            <a href="#" class="btn btn-primary">🚧 Projects</a>
+            <a href="#" class="btn btn-primary">📦 Packages</a>
+            </div>
+        
+          </div>
+        </div>
+
+        <!-- Here is where the content on the page that changes will be displayed. -->
+
+        <div id="dynamic-container" class="card-body" style="border: transparent">
+
+          
 
 
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
+
+
+
+
+
+        </div>
+
+        <!-- Here is there form element that will accept the input for new data -->
+        <form>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Create New Repo</label>
+            <input type="repoName" class="form-control" id="exampleFormControlInput1" placeholder="Repo Example Name" style="background-color: #010409; border-color: #3d444d;">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description (optional)</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="background-color: #010409; border-color: #3d444d;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
     </div>
+
+
+    <div id="footer" class="fixed-bottom">
+      <div class="card" style="border: transparent;">
+        <div class="card-footer">
+        <a href="#" class="btn btn-primary">Terms</a>
+        <a href="#" class="btn btn-primary">Privacy</a>
+        <a href="#" class="btn btn-primary">Security</a>
+        <a href="#" class="btn btn-primary">Status</a>
+        <a href="#" class="btn btn-primary">Help</a>
+        <a href="#" class="btn btn-primary">Contact Github</a>
+
+        <!-- Need a logo to go here -->
+
+        <a href="#" class="btn btn-primary">Pricing</a>
+        <a href="#" class="btn btn-primary">API</a>
+        <a href="#" class="btn btn-primary">Training</a>
+        <a href="#" class="btn btn-primary">Blog</a>
+        <a href="#" class="btn btn-primary">About</a>
+        </div>
+    
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="main.js"></script>
   </body>
