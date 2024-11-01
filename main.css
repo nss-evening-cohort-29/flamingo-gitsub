@@ -1,3 +1,18 @@
 body {
-  background-color: orange;
+  /* background now matches gitHub Darkmode color */
+  background-color: #0d1117;
+}
+
+/* Initial styling to get us in the right direction. */
+
+.card {
+  background: transparent;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  padding: 10px;
+}
+
+.list-group-item{
+  background: transparent;
+  color: whitesmoke
 }
