@@ -24,3 +24,7 @@ body {
 #everything-container {
   display: flex
 }
+
+.card-img-top {
+  border-radius: 200px;
+}
