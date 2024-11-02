@@ -188,6 +188,10 @@ if (document.URL.includes("projects.html")) {
 //************************************//
 //************************************//
 
+//************************************//
+//**********CARDS ON DOM**************//
+//************************************//
+
 const packagesDynamicContainer = document.querySelector(
   "#packages-dynamic-container"
 );
@@ -223,8 +227,8 @@ const packagesDynamicForm = document.querySelector("#packages-dynamicForm");
 if (document.URL.includes("packages.html")) {
   packagesDynamicForm.innerHTML += `<form id="form">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Create New Project</label>
-            <input type="projectName" class="form-control" id="inputName" placeholder="Project Example Name" style="background-color: #010409; border-color: #3d444d;" required>
+            <label for="exampleFormControlInput1" class="form-label">Create New Package</label>
+            <input type="projectName" class="form-control" id="inputName" placeholder="Package Example Name" style="background-color: #010409; border-color: #3d444d;" required>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description (optional)</label>
@@ -237,23 +241,29 @@ if (document.URL.includes("packages.html")) {
 // ************************************
 // ********** CREATE*******************
 // ************************************
+
+const packageForm = document.querySelector("#form");
+const packageInputName = document.querySelector("#inputName");
+const packageInputDescription = document.querySelector("#inputDescription");
+const packageSubmitButton = document.querySelector("#submitButton");
+
 //event listener for submit button click on the form
-if (document.URL.includes("projects.html")) {
-  projectForm.addEventListener("submit", (e) => {
+if (document.URL.includes("packages.html")) {
+  packageForm.addEventListener("submit", (e) => {
     //prevent default prevents reloading the page when the form is submitted
     e.preventDefault();
-    const newProject = {
+    const newPackage = {
       //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. inputName variable)
-      name: projectInputName.value,
-      description: projectInputDescription.value,
-      id: projects.length + 1,
+      name: packageInputName.value,
+      description: packageInputDescription.value,
+      id: packages.length + 1,
     };
     //add new project to the projects array
-    projects.push(newProject);
+    packages.push(newPackage);
     //re-render  the cards on the DOM with the updated array
-    projectsCardsOnDom(projects);
+    packagesCardsOnDom(packages);
     //clear the form after submit
-    projectForm.reset();
+    packageForm.reset();
   });
 }
 
