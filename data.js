@@ -309,6 +309,49 @@ const packages = [
 
 ]
 
+// array object for pinned repos
+
+const pinnedRepos = [
+  { 
+    id: 0,
+    name: "pinned-repo-test000",
+    description: "Lorem ipsum",
+    primaryLanguage: "react",
+    publicOrPrivate: "public",
+    isStarred: true,
+  },
+
+  { 
+    id: 1,
+    name: "pinned-repo-test001",
+    description: "Lorem ipsum",
+    primaryLanguage: "css",
+    publicOrPrivate: "public",
+    isStarred: true,
+  },
+
+  { 
+    id: 2,
+    name: "pinned-repo-test002",
+    description: "Lorem ipsum",
+    primaryLanguage: "python",
+    publicOrPrivate: "public",
+    isStarred: true,
+  },
+
+  { 
+    id: 3,
+    name: "pinned-repo-test003",
+    description: "Lorem ipsum",
+    primaryLanguage: "rust",
+    publicOrPrivate: "public",
+    isStarred: true,
+  },
+]
+
+
+
+
 // Complex data object 
 
-export {repos, projects, packages};
+export {repos, projects, packages, pinnedRepos};

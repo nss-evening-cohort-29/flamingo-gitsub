@@ -1,8 +1,6 @@
 body {
   /* background now matches gitHub Darkmode color */
   background-color: #0d1117;
-  display: flex;
-  justify-content: center;
   
 }
 
@@ -13,7 +11,7 @@ body {
   color: whitesmoke;
   border-color: whitesmoke;
   padding: 10px;
-
+  
 }
 
 .list-group-item {
@@ -23,6 +21,7 @@ body {
 
 #everything-container {
   display: flex;
+  justify-content: center;
 }
 
 .card-img-top {
