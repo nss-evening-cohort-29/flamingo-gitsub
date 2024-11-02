@@ -1,6 +1,6 @@
 // Need an array object for Repositories
 
-const reposPreMade = [
+const repos = [
 
   { 
     id: 0,
@@ -107,7 +107,7 @@ const reposPreMade = [
 
 // Need an array object for Projects
 
-const projectsPreMade = [
+const projects = [
 
   { 
     id: 0,
@@ -217,7 +217,7 @@ const projectsPreMade = [
 // Need an array object for Packages
 
 
-const packagesPreMade = [
+const packages = [
 
   { 
     id: 0,
@@ -311,4 +311,4 @@ const packagesPreMade = [
 
 // Complex data object 
 
-export {reposPreMade, projectsPreMade, packagesPreMade};
+export {repos, projects, packages};

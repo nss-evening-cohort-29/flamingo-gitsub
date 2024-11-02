@@ -1,4 +1,4 @@
 console.log("yay");
 
 // importing from the data module
-import {reposPreMade, projectsPreMade, packagesPreMade} from'./data.js'
+import {repos, projects, packages} from'./data.js'
