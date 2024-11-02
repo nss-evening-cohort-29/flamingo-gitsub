@@ -224,7 +224,6 @@ const packages = [
     name: "test-package000",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -232,7 +231,6 @@ const packages = [
     name: "test-package001",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -240,7 +238,6 @@ const packages = [
     name: "test-package002",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -248,7 +245,6 @@ const packages = [
     name: "Apple Kernel Corer",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -256,7 +252,6 @@ const packages = [
     name: "Banana Peel Scraper",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -264,7 +259,6 @@ const packages = [
     name: "Grape Bundler",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: true,
    },
 
    { 
@@ -272,7 +266,6 @@ const packages = [
     name: "Orange Code Juicer",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: false,
    },
 
    { 
@@ -280,7 +273,6 @@ const packages = [
     name: "Chocolate Bar Segmenter",
     description: "Lorem ipsum",
     publicOrPrivate: "private",
-    isOpen: false,
    },
 
    { 
@@ -288,7 +280,6 @@ const packages = [
     name: "Peppermint Log Logger",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: false,
    },
 
    { 
@@ -296,7 +287,6 @@ const packages = [
     name: "Caramel Carrier",
     description: "Lorem ipsum",
     publicOrPrivate: "private",
-    isOpen: false,
    },
 
    { 
@@ -304,7 +294,6 @@ const packages = [
     name: "Mystery Meat",
     description: "Lorem ipsum",
     publicOrPrivate: "public",
-    isOpen: false,
    },
 
 ]
