@@ -14,8 +14,8 @@ const cardsOnDom = (array) => {
   let domString = "";
   for (const repo of array) {
     domString +=
-      //"pin-button--" the -- is to add pinning funcntionality later, in a similar fashion to delete
-      `<div class="card" style="width: 18rem;">
+      //"pin-button--" the -- is to add pinning functionality later, in a similar fashion to delete
+      `<div class="card" id="dynamic-cards">
   <div class="card-body">
     <button class="btn btn-primary" id="pin-button--">Pin (adding functionality later)</button>
     <h5 class="card-title">${repo.name}</h5>
