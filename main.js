@@ -17,7 +17,7 @@ const cardsOnDom = (array) => {
       //"pin-button--" the -- is to add pinning functionality later, in a similar fashion to delete
       `<div class="card" id="dynamic-cards">
   <div class="card-body">
-    <button class="btn btn-primary" id="pin-button--">⭐Pin (adding functionality later)</button>
+  <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">⭐Pin (adding functionality later)</a></p>
     <h5 class="card-title">${repo.name}</h5>
     <p class="card-text">${repo.description}</p>
     <a href="#" class="card-link">${repo.primaryLanguage}</a>
