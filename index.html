@@ -10,10 +10,10 @@
   <body>
 
 
-    <div id="everything-container">
+    <div id="everything-container" style="display: flex; flex-wrap: wrap;">
 
       <!-- This bootstrap card most closely matches wireframe requirements -->
-      <div id="profile-container" class="card" style="width: 18rem; border: transparent;" >
+      <div id="profile-container" class="card" style="width: 18rem; height: 40rem; border: transparent;">
         <img src="catPic.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Profile Name</h5>
@@ -38,10 +38,10 @@
 
 
       <!-- Here is the container that holds all of the non-profile content. -->
-      <div id="content-container" class="card" style="border: transparent;">
+      <div id="content-container" class="card" style="border: transparent; display: flex; flex-direction: column;">
 
       <!-- Here is the header and the buttons to change the pages -->
-        <div id="header" class="sticky-top">
+        <div id="header">
           <div class="card" style="border: transparent;">
             <div class="card-header">
             <a href="#" class="btn btn-primary">📖 Overview</a>
@@ -55,7 +55,8 @@
 
         <!-- Here is where the content on the page that changes will be displayed. -->
 
-        <div id="dynamic-container"> </div>
+        <div id="dynamic-container"></div>
+            
           
 
 
@@ -82,7 +83,7 @@
     </div>
 
 
-    <div id="footer" class="fixed-bottom">
+    <div id="footer" style="display: flex; flex-direction: column-reverse;">
       <div class="card" style="border: transparent;">
         <div class="card-footer">
         <a href="#" class="btn btn-primary">Terms</a>
