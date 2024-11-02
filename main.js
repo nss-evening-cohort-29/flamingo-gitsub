@@ -20,8 +20,8 @@ import { repos, projects, packages, pinnedRepos } from "./data.js";
 //set location
 const reposDynamicContainer = document.querySelector("#repos-dynamicContainer");
 
-//use for loop to get the objects from our object arrays (repos, projects, packages) as cards and into our html
-//reposCardsOnDom function. Eventually, this function will be executed when event listeners for pages buttons in the header are clicked
+//use for loop to get the objects from our repos object array as cards and into our html
+//reposCardsOnDom function.
 const reposCardsOnDom = (array) => {
   let domString = "";
   for (const repo of array) {
@@ -40,18 +40,18 @@ const reposCardsOnDom = (array) => {
   reposDynamicContainer.innerHTML = domString;
 };
 
-//will delete this later (todolist) and instead call it when repos button is pushed, but for now to see it on the DOM
-reposCardsOnDom(repos);
-
-//call reposCardsOnDom function with pinnedRepos obj array to be the default page (displays on loading website) (todolist)
+// call the function with the repos array to paint the DOM
+if (document.URL.includes("repos.html")) {
+  reposCardsOnDom(repos);
+}
 
 //************************************//
 //**********FORM *********************//
 //************************************//
 //set location
 const reposDynamicForm = document.querySelector("#repos-dynamicForm");
-
-reposDynamicForm.innerHTML += `<form id="form">
+if (document.URL.includes("repos.html")) {
+  reposDynamicForm.innerHTML += `<form id="form">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Create New Repo</label>
             <input type="repoName" class="form-control" id="inputName" placeholder="Repo Example Name" style="background-color: #010409; border-color: #3d444d;" required>
@@ -62,6 +62,7 @@ reposDynamicForm.innerHTML += `<form id="form">
           </div>
           <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
         </form>`;
+}
 
 //************************************//
 //********** CREATE*******************//
@@ -74,25 +75,24 @@ const inputDescription = document.querySelector("#inputDescription");
 const submitButton = document.querySelector("#submitButton");
 
 //event listener for submit button click on the form
-form.addEventListener("submit", (e) => {
-  //prevent default prevents reloading the page when the form is submitted
-  e.preventDefault();
-  const newRepo = {
-    //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. inputName variable)
-    name: inputName.value,
-    description: inputDescription.value,
-    id: repos.length + 1,
-  };
-  //add new repo to the repos array
-  repos.push(newRepo);
-  //re-render  the cards on the DOM with the updated array
-  reposCardsOnDom(repos);
-  //clear the form after submit
-  form.reset();
-});
-
-//this logs the entire HTML after all dynamic rendering is complete. useful for debugging or seeing what our resulting html is. can delete later.
-console.log(document.documentElement.outerHTML);
+if (document.URL.includes("repos.html")) {
+  form.addEventListener("submit", (e) => {
+    //prevent default prevents reloading the page when the form is submitted
+    e.preventDefault();
+    const newRepo = {
+      //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. inputName variable)
+      name: inputName.value,
+      description: inputDescription.value,
+      id: repos.length + 1,
+    };
+    //add new repo to the repos array
+    repos.push(newRepo);
+    //re-render  the cards on the DOM with the updated array
+    reposCardsOnDom(repos);
+    //clear the form after submit
+    form.reset();
+  });
+}
 
 //************************************//
 //************************************//
@@ -101,7 +101,92 @@ console.log(document.documentElement.outerHTML);
 //************************************//
 
 //************************************//
+//**********CARDS ON DOM**************//
 //************************************//
-//**********PACKAGES****************//
+
+//set location
+const projectsDynamicContainer = document.querySelector(
+  "#projects-dynamic-container"
+);
+
+//use for loop to get the objects from our projects object array as cards and into our html
+//projectsCardsOnDom function.
+const projectsCardsOnDom = (array) => {
+  let domString = "";
+  for (const project of array) {
+    domString += `<div class="card" id="dynamic-cards">
+  <div class="card-body">
+    <h5 class="card-title">${project.name}</h5>
+    <p class="card-text">${project.description}</p>
+    <a href="#" class="card-link">${project.primaryLanguage}</a>
+    <a href="#" class="card-link">${project.publicOrPrivate}</a>
+  </div>
+</div>`;
+  }
+  if (document.URL.includes("projects.html")) {
+    projectsDynamicContainer.innerHTML = domString;
+  }
+};
+
+// call the function with the projects array to paint the DOM
+if (document.URL.includes("projects.html")) {
+  projectsCardsOnDom(projects);
+}
+
+//************************************//
+//**********FORM *********************//
+//************************************//
+//set location
+const projectsDynamicForm = document.querySelector("#projects-dynamicForm");
+if (document.URL.includes("projects.html")) {
+  projectsDynamicForm.innerHTML += `<form id="form">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Create New Project</label>
+            <input type="projectName" class="form-control" id="inputName" placeholder="Project Example Name" style="background-color: #010409; border-color: #3d444d;" required>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description (optional)</label>
+            <textarea class="form-control" id="inputDescription" rows="3" style="background-color: #010409; border-color: #3d444d;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+        </form>`;
+}
+
+// ************************************
+// ********** CREATE*******************
+// ************************************
+
+// assign ids from the form to variables
+const projectForm = document.querySelector("#form");
+const projectInputName = document.querySelector("#inputName");
+const projectInputDescription = document.querySelector("#inputDescription");
+const projectSubmitButton = document.querySelector("#submitButton");
+
+//event listener for submit button click on the form
+if (document.URL.includes("projects.html")) {
+  projectForm.addEventListener("submit", (e) => {
+    //prevent default prevents reloading the page when the form is submitted
+    e.preventDefault();
+    const newProject = {
+      //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. inputName variable)
+      name: projectInputName.value,
+      description: projectInputDescription.value,
+      id: projects.length + 1,
+    };
+    //add new project to the projects array
+    projects.push(newProject);
+    //re-render  the cards on the DOM with the updated array
+    projectsCardsOnDom(projects);
+    //clear the form after submit
+    projectForm.reset();
+  });
+}
+
 //************************************//
 //************************************//
+//**********PACKAGES******************//
+//************************************//
+//************************************//
+
+//this logs the entire HTML after all dynamic rendering is complete. useful for debugging or seeing what our resulting html is. can delete later.
+console.log(document.documentElement.outerHTML);
