@@ -2,7 +2,6 @@ body {
   /* background now matches gitHub Darkmode color */
   background-color: #0d1117;
   display: flex;
-
 }
 
 /* Initial styling to get us in the right direction. */
@@ -14,17 +13,21 @@ body {
   padding: 10px;
 }
 
-.list-group-item{
+.list-group-item {
   background: transparent;
-  color: whitesmoke
+  color: whitesmoke;
 }
 
-
-
 #everything-container {
-  display: flex
+  display: flex;
 }
 
 .card-img-top {
   border-radius: 200px;
+}
+
+#dynamic-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
