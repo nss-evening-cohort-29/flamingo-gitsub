@@ -7,6 +7,7 @@ As a team, build a clone of the GitHub website as outlined below. Be creative an
 **:warning:** DO NOT start coding until an instructor has looked at your Milestones.
 
 ## Definition of Done
+
 - All items are completed in getting started
 - MVP, defined by the Acceptance Criteria, has been completed
 - The title of your application is visible in the browser tab
@@ -18,26 +19,27 @@ As a team, build a clone of the GitHub website as outlined below. Be creative an
 
 ### Theme
 
-Use the Github website as a foundation for layout and styles that you will need to try to implement. 
+Use the Github website as a foundation for layout and styles that you will need to try to implement.
 
 MAKE SURE TO VIEW ALL THE PAGES OF THE WIREFRAME: [Here is the wireframe](https://www.figma.com/file/8vIX1yEXd2UxdWARbWqAje/GitSub?node-id=5%3A20)
 
-* Vanilla HTML, CSS, and JS only
-* Your team should be using bootstrap
+- Vanilla HTML, CSS, and JS only
+- Your team should be using bootstrap
 
 ### Pages
+
 Each team member is going to be responsible for the content of a different page, so decide on the name and content for each of those pages. We know that Githib uses tabs, but we want you to create separate pages with the same styles applied to them for consistency.
 
 Some possible options are:
 
 - Overview page
   - Includes a form that allows a user to add a pinned repository
-  - STRETCH GOALS: 
+  - STRETCH GOALS:
     - Allow users to Delete Pins
     - Create the About area shown in the Wireframe
 - Repositories page
   - Includes a form that allows a user to create a new repository
-  - STRETCH GOAL: 
+  - STRETCH GOAL:
     - Allow users to search through the repos using the search bar
     - Allow users to Star Repos
 - Projects Page with at least 5 projects listed on the page
@@ -47,7 +49,7 @@ Some possible options are:
     - Allow users to sort using the sort tool in the wireframe
 - Packages Page
   - Includes a form that allows a user to add a package to the list of packages
-  - STRETCH GOAL: 
+  - STRETCH GOAL:
     - Allow users to Delete Packages
     - Allow users to search packages
 
@@ -56,6 +58,7 @@ Some possible options are:
 Create data objects that you can use for your website. Do not duplicate objects or arrays. If multiple team members need the same data, create one data source for everyone to use.
 
 ### Planning
+
 Your team **MUST** use github milestones to track tickets and progress on tickets.
 
 - Create issue tickets for EVERYthing that needs to be completed in your project. There are going to be some elements that you will need to work on as a team and some that you will do as an individual. This is a TEAM project. NO ONE GETS LEFT BEHIND!
@@ -63,6 +66,7 @@ Your team **MUST** use github milestones to track tickets and progress on ticket
 - We expect to see detailed wireframes for all different views in your project especially if they are different from the sample wireframes. These wireframes should be included in the appropriate ticket.
 
 ### Git
+
 Your team is going to learn how to use git to enable good teamwork when building a software product.
 
 1. Follow the instructions in class to clone down the repo
@@ -70,7 +74,7 @@ Your team is going to learn how to use git to enable good teamwork when building
 1. [Protect the main branch](https://github.com/orgs/nss-evening-web-development/discussions/268) of your project to prevent teammates from being about to push directly to it
 1. Reference [this discussion ticket](https://github.com/orgs/nss-evening-web-development/discussions/5) for how to work on teams with github
 1. Before anyone on the team writes a single line of code, the team will decide on a branch naming strategy. Branches should be descriptive of the work that is going to be done on that branch. Some teams also decide to add the developer's information to the branch name, such as initials. For example, a developer named Jasmine Sheboygen is going to work on the navbar for the web site. A good name for the branch would be `js-navbar`.
-1. Your team already has a README.md file so there is no reason anyone should push to the main branch - LIKE EVER.  Also at some point there should probably exist a good, proper readme with screenshots
+1. Your team already has a README.md file so there is no reason anyone should push to the main branch - LIKE EVER. Also at some point there should probably exist a good, proper readme with screenshots
 
 Now everyone will work on their page on those individual branches. Once a teammate feels that their work is complete, the teammate will push up their branch to Github and create a pull request. Decide as a group your standard for reviewing and approving pull requests, for example, you may decide that each PR needs one thumbs up from another teammate, you may decide that everyone in the group needs to give it a thumbs up, etc. At the very least, one of the other teammates must review the pull request and give a thumbs up (Just type :+1 in the comment box).
 
@@ -79,47 +83,48 @@ Once the PR gets a thumbs up, the teammate who made the PR should merge the curr
 Now you have all of your work, plus all of your teammate's approved work on one branch. :cool:
 
 ### Javascript
-* EVERY SINGLE PAGE must include a JS loop of some kind
-* All your JS should be written in functions.  Wherever possible reusable functions.
+
+- EVERY SINGLE PAGE must include a JS loop of some kind
+- All your JS should be written in functions. Wherever possible reusable functions.
 
 **:warning:** DO NOT start coding until an instructor has looked at your MILESTONES.
 
 ### Twists
+
 Your project must include each of the following:
-* **Complex Data** - At least 1 of your pages should use a more complex data structure.  This means that one of your arrays should have an array inside each object.  For example:  your repos could have an array of objects called users and each of your users could have an array called socials in it.  You then would have to figure out how to display all the users and their social media in the domString
+
+- **Complex Data** - At least 1 of your pages should use a more complex data structure. This means that one of your arrays should have an array inside each object. For example: your repos could have an array of objects called users and each of your users could have an array called socials in it. You then would have to figure out how to display all the users and their social media in the domString
 
 ```js
 const usersExample = [
   {
-    name: 'Person Name1',
+    name: "Person Name1",
     socials: [
       {
-        smName: 'Twitter',
-        url: 'https://twitter.com'
+        smName: "Twitter",
+        url: "https://twitter.com",
       },
       {
-        smName: 'LinkedIn',
-        url: 'https://linkedin.com'
-      }
+        smName: "LinkedIn",
+        url: "https://linkedin.com",
+      },
     ],
   },
   {
-    name: 'Person Name2',
+    name: "Person Name2",
     socials: [
       {
-        smName: 'Twitter',
-        url: 'https://twitter.com'
+        smName: "Twitter",
+        url: "https://twitter.com",
       },
       {
-        smName: 'Instagram',
-        url: 'https://instagram.com'
-      }
+        smName: "Instagram",
+        url: "https://instagram.com",
+      },
     ],
-  }
-]
+  },
+];
 ```
 
-* **Dynamic Buttons** - somewhere in your project there should be some dynamically created buttons (NOT IN THE HTML...RENDERED USING JAVASCRIPT) - clicking each button should perform some sort of action
-* **Form** - Each page in your project should have at least 1 form.  Submitting that form via a button click should do something.
-
-
+- **Dynamic Buttons** - somewhere in your project there should be some dynamically created buttons (NOT IN THE HTML...RENDERED USING JAVASCRIPT) - clicking each button should perform some sort of action
+- **Form** - Each page in your project should have at least 1 form. Submitting that form via a button click should do something.
