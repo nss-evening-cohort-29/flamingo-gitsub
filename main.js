@@ -8,6 +8,89 @@ import { repos, projects, packages, pinnedRepos } from "./data.js";
 //************************************//
 
 //************************************//
+//**********CARDS ON DOM**************//
+//************************************//
+
+//set location
+const overviewDynamicContainer = document.querySelector(
+  "#overview-dynamic-container"
+);
+
+//use for loop to get the objects from our pinnedRepos object array as cards and into our html
+//overviewCardsOnDom function.
+const overviewCardsOnDom = (array) => {
+  let domString = "";
+  for (const pinnedRepo of array) {
+    domString +=
+      //has pin button like the repo cards, but it's not clickable on these
+      `<div class="card" id="dynamic-cards">
+    <div class="card-body">
+    <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#" id="pin--">⭐Pinned (adding functionality later)</a></p>
+      <h5 class="card-title">${pinnedRepo.name}</h5>
+      <p class="card-text">${pinnedRepo.description}</p>
+      <a href="#" class="card-link">${pinnedRepo.primaryLanguage}</a>
+      <a href="#" class="card-link">${pinnedRepo.publicOrPrivate}</a>
+    </div>
+  </div>`;
+  }
+  overviewDynamicContainer.innerHTML = domString;
+};
+
+// call the function with the pinnedRepos array to paint the DOM
+if (document.URL.includes("index.html")) {
+  overviewCardsOnDom(pinnedRepos);
+}
+
+// //************************************//
+// //**********FORM *********************//
+// //************************************//
+// //set location
+// const projectsDynamicForm = document.querySelector("#projects-dynamicForm");
+// if (document.URL.includes("projects.html")) {
+//   projectsDynamicForm.innerHTML += `<form id="form">
+//           <div class="mb-3">
+//             <label for="exampleFormControlInput1" class="form-label">Create New Project</label>
+//             <input type="projectName" class="form-control" id="inputName" placeholder="Project Example Name" style="background-color: #010409; border-color: #3d444d;" required>
+//           </div>
+//           <div class="mb-3">
+//             <label for="exampleFormControlTextarea1" class="form-label">Description (optional)</label>
+//             <textarea class="form-control" id="inputDescription" rows="3" style="background-color: #010409; border-color: #3d444d;"></textarea>
+//           </div>
+//           <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+//         </form>`;
+// }
+
+// // ************************************
+// // ********** CREATE*******************
+// // ************************************
+
+// // assign ids from the form to variables
+// const projectForm = document.querySelector("#form");
+// const projectInputName = document.querySelector("#inputName");
+// const projectInputDescription = document.querySelector("#inputDescription");
+// const projectSubmitButton = document.querySelector("#submitButton");
+
+// //event listener for submit button click on the form
+// if (document.URL.includes("projects.html")) {
+//   projectForm.addEventListener("submit", (e) => {
+//     //prevent default prevents reloading the page when the form is submitted
+//     e.preventDefault();
+//     const newProject = {
+//       //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. inputName variable)
+//       name: projectInputName.value,
+//       description: projectInputDescription.value,
+//       id: projects.length + 1,
+//     };
+//     //add new project to the projects array
+//     projects.push(newProject);
+//     //re-render  the cards on the DOM with the updated array
+//     projectsCardsOnDom(projects);
+//     //clear the form after submit
+//     projectForm.reset();
+//   });
+// }
+
+//************************************//
 //************************************//
 //**********REPOS*********************//
 //************************************//
