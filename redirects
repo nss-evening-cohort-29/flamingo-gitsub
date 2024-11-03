@@ -3,7 +3,7 @@
 # this is to fix netlify removing .html extension 
 # code 200 info: With 200, users stay on the original path (/index), but they’re served the /index.html file in the background.
 
-/index      /index.html       200
-/repos      /repos.html       200
-/projects   /projects.html    200
-/packages   /packages.html    200
+/index      /index.html       200!
+/repos      /repos.html       200!
+/projects   /projects.html    200!
+/packages   /packages.html    200!
