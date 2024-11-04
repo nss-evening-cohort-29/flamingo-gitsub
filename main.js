@@ -1,11 +1,99 @@
 // importing from the data module
-import { repos, projects, packages, pinnedRepos } from "./data.js";
+import { repos, projects, packages, pinnedRepos, randomData } from "./data.js";
 
 //************************************//
 //************************************//
 //**********OVERVIEW******************//
 //************************************//
 //************************************//
+
+//************************************//
+//**********CARDS ON DOM**************//
+//************************************//
+
+//set location
+const overviewDynamicContainer = document.querySelector(
+  "#overview-dynamic-container"
+);
+
+//use for loop to get the objects from our pinnedRepos object array as cards and into our html
+//overviewCardsOnDom function.
+const overviewCardsOnDom = (array) => {
+  let domString = "";
+  for (const pinnedRepo of array) {
+    domString +=
+      //has pin button like the repo cards, but it's not clickable on these
+      `<div class="card" id="dynamic-cards">
+    <div class="card-body">
+    <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#" id="pin--">⭐Pinned</a></p>
+      <h5 class="card-title">${pinnedRepo.name}</h5>
+      <p class="card-text">${pinnedRepo.description}</p>
+      <a href="#" class="card-link">${pinnedRepo.primaryLanguage}</a>
+      <a href="#" class="card-link">${pinnedRepo.publicOrPrivate}</a>
+    </div>
+  </div>`;
+  }
+  overviewDynamicContainer.innerHTML = domString;
+};
+
+// call the function with the pinnedRepos array to paint the DOM
+if (document.URL.includes("index.html")) {
+  overviewCardsOnDom(pinnedRepos);
+}
+
+//************************************//
+//**********FORM *********************//
+//************************************//
+//set location
+const overviewDynamicForm = document.querySelector("#overview-dynamicForm");
+if (document.URL.includes("index.html")) {
+  overviewDynamicForm.innerHTML += `<form id="form">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Create New Pinned Repo</label>
+            <input type="pinnedRepoName" class="form-control" id="inputName" placeholder="Example Name" style="background-color: #010409; border-color: #3d444d;" required>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description (optional)</label>
+            <textarea class="form-control" id="inputDescription" rows="3" style="background-color: #010409; border-color: #3d444d;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+        </form>`;
+}
+
+// ************************************
+// ********** CREATE*******************
+// ************************************
+
+// assign ids from the form to variables
+const pinnedRepoForm = document.querySelector("#form");
+const pinnedRepoInputName = document.querySelector("#inputName");
+const pinnedRepoInputDescription = document.querySelector("#inputDescription");
+
+//event listener for submit button click on the form
+if (document.URL.includes("index.html")) {
+  pinnedRepoForm.addEventListener("submit", (e) => {
+    //prevent default prevents reloading the page when the form is submitted
+    e.preventDefault();
+    const newPinnedRepo = {
+      //this key value works bc above we used query selector to assign specific ids of form to variables (e.g. pinnedRepoInputName variable)
+      name: pinnedRepoInputName.value,
+      description: pinnedRepoInputDescription.value,
+      id: pinnedRepos.length + 1,
+      primaryLanguage:
+        randomData[0].primaryLanguage[
+          Math.floor(Math.random() * randomData[0].primaryLanguage.length)
+        ], // assigns primary languge randomly
+      publicOrPrivate:
+        randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
+    };
+    //add new project to the pinnedRepo array
+    pinnedRepos.push(newPinnedRepo);
+    //re-render  the cards on the DOM with the updated array
+    overviewCardsOnDom(pinnedRepos);
+    //clear the form after submit
+    pinnedRepoForm.reset();
+  });
+}
 
 //************************************//
 //************************************//
@@ -72,7 +160,6 @@ if (document.URL.includes("repos.html")) {
 const form = document.querySelector("#form");
 const inputName = document.querySelector("#inputName");
 const inputDescription = document.querySelector("#inputDescription");
-const submitButton = document.querySelector("#submitButton");
 
 //event listener for submit button click on the form
 if (document.URL.includes("repos.html")) {
@@ -84,6 +171,12 @@ if (document.URL.includes("repos.html")) {
       name: inputName.value,
       description: inputDescription.value,
       id: repos.length + 1,
+      primaryLanguage:
+        randomData[0].primaryLanguage[
+          Math.floor(Math.random() * randomData[0].primaryLanguage.length)
+        ], // assigns primary languge randomly
+      publicOrPrivate:
+        randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
     //add new repo to the repos array
     repos.push(newRepo);
@@ -160,7 +253,6 @@ if (document.URL.includes("projects.html")) {
 const projectForm = document.querySelector("#form");
 const projectInputName = document.querySelector("#inputName");
 const projectInputDescription = document.querySelector("#inputDescription");
-const projectSubmitButton = document.querySelector("#submitButton");
 
 //event listener for submit button click on the form
 if (document.URL.includes("projects.html")) {
@@ -172,6 +264,12 @@ if (document.URL.includes("projects.html")) {
       name: projectInputName.value,
       description: projectInputDescription.value,
       id: projects.length + 1,
+      primaryLanguage:
+        randomData[0].primaryLanguage[
+          Math.floor(Math.random() * randomData[0].primaryLanguage.length)
+        ], // assigns primary languge randomly
+      publicOrPrivate:
+        randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
     //add new project to the projects array
     projects.push(newProject);
@@ -245,7 +343,6 @@ if (document.URL.includes("packages.html")) {
 const packageForm = document.querySelector("#form");
 const packageInputName = document.querySelector("#inputName");
 const packageInputDescription = document.querySelector("#inputDescription");
-const packageSubmitButton = document.querySelector("#submitButton");
 
 //event listener for submit button click on the form
 if (document.URL.includes("packages.html")) {
@@ -257,6 +354,8 @@ if (document.URL.includes("packages.html")) {
       name: packageInputName.value,
       description: packageInputDescription.value,
       id: packages.length + 1,
+      publicOrPrivate:
+        randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
     //add new project to the projects array
     packages.push(newPackage);
