@@ -11,6 +11,7 @@ import { repos, projects, packages, pinnedRepos, randomData } from "./data.js";
 //**********CARDS ON DOM**************//
 //************************************//
 
+
 //set location
 const overviewDynamicContainer = document.querySelector(
   "#overview-dynamic-container"
@@ -82,7 +83,7 @@ if (document.URL.includes("index.html")) {
       primaryLanguage:
         randomData[0].primaryLanguage[
           Math.floor(Math.random() * randomData[0].primaryLanguage.length)
-        ], // assigns primary languge randomly
+        ], // assigns primary language randomly
       publicOrPrivate:
         randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
@@ -117,13 +118,14 @@ const reposCardsOnDom = (array) => {
       //"pin-button--" the -- is to add pinning functionality later, in a similar fashion to delete
       `<div class="card" id="dynamic-cards">
   <div class="card-body">
-  <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#" id="pin--">⭐Pin (adding functionality later)</a></p>
+  <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#" id="pin--${repo.id}">⭐Pin (adding functionality later)</a></p>
     <h5 class="card-title">${repo.name}</h5>
     <p class="card-text">${repo.description}</p>
     <a href="#" class="card-link">${repo.primaryLanguage}</a>
     <a href="#" class="card-link">${repo.publicOrPrivate}</a>
   </div>
-</div>`;
+</div>
+`;
   }
   reposDynamicContainer.innerHTML = domString;
 };
@@ -174,7 +176,7 @@ if (document.URL.includes("repos.html")) {
       primaryLanguage:
         randomData[0].primaryLanguage[
           Math.floor(Math.random() * randomData[0].primaryLanguage.length)
-        ], // assigns primary languge randomly
+        ], // assigns primary language randomly
       publicOrPrivate:
         randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
@@ -187,6 +189,52 @@ if (document.URL.includes("repos.html")) {
   });
 }
 
+//************************************//
+//********PINNING FUNCTION************//
+//************************************//
+
+//target the dynamicContainer div
+document.querySelector("#repos-dynamicContainer");
+
+//add event listener to capture clicks
+if (document.URL.includes("repos.html")){
+
+  reposDynamicContainer.addEventListener("click", (e) => {
+    //think of 'e' as as HERE is the click is happening
+    // id="pin--"
+    //target the specific expel button (since there are multiple on the page)
+    //.target is part of JavaScript, specifically within the Event object, which is automatically provided when an event occurs (like a click or key press). When an event happens, the event handler function receives an Event object (in this case, 'e'), which contains information about the event, including .target.
+    if (e.target.id.includes("pin")) {
+      //destructuring:
+      //const [, id]: the comma is a placeholder, indicating that the first value of the array is ignored. The second value (whatever is after the "--") is assigned to the const "id," which we are also declaring here
+      //above, in the repos, the pin button's ID is: id="pin--${repos.id}". with e.target.id, we are retrieving that, and we are splitting it at the --, which gives us the array [pinnedRepos, #].
+      //we assign const id = #
+      //we're basically just getting the # id of the card who's expel button we clicked, and assigning that to const id
+      const [, id] = e.target.id.split("--");
+      //The findIndex() method of Array instances returns the index of the first element in an array that satisfies the provided testing function. If no elements satisfy the testing function, -1 is returned.
+      //so here, we are finding the first instance that a repo id matches the const id that we assigned in the previous step). And we are assigning that to the const "index"
+      //// Number() just makes sure id is converted to a number (if it's not already)
+      //tldr: we're finding where the id of an obj in repos matches the id of where we clicked, and assigning that to const index
+      const index = repos.findIndex((e) => e.id === Number(id));
+      //remove index (which we just declared and assigned in the previous step) from the array, and assign it to const removed
+      ////splice can do other things, but in this case (X, #) or for us (index, 1), X is the position of the item to remove, and # is the number of elements to remove, starting from X.
+      //also we assign the thing that we removed to a const "removed", so that we can pass it into expelledCardsOnDom
+      const pinnedRepo = repos.splice(index, 1);
+
+      pinnedRepos.push(pinnedRepo);
+    
+      //now let's repaint the DOM with our firstYears and our expelled
+      // document.querySelector("#repos-dynamicContainer").style.display = "block";
+      // reposCardsOnDom(repos);
+      // if (document.URL.includes("index.html")){
+      overviewCardsOnDom(pinnedRepos);
+        
+      // }
+    }
+});
+}
+
+console.log(pinnedRepos)
 //************************************//
 //************************************//
 //**********PROJECTS******************//
@@ -267,7 +315,7 @@ if (document.URL.includes("projects.html")) {
       primaryLanguage:
         randomData[0].primaryLanguage[
           Math.floor(Math.random() * randomData[0].primaryLanguage.length)
-        ], // assigns primary languge randomly
+        ], // assigns primary language randomly
       publicOrPrivate:
         randomData[0].publicOrPrivate[Math.floor(Math.random() * 2)], // assigns public or private randomly
     };
